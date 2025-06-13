@@ -26,3 +26,8 @@ if __name__ == '__main__':
     total_items_df = pd.DataFrame(total_items_results)
     total_items_df.columns = ['Total_Items']
     print(total_items_df)
+
+    total_weapons_results = execute_q(conn, q.WEAPONS)
+    total_weapons_df = pd.DataFrame(total_weapons_results)
+    total_weapons_df.columns = ['Total_Weapons']
+    print(total_weapons_df)

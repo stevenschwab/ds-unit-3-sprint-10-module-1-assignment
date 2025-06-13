@@ -8,14 +8,14 @@ TOTAL_SUBCLASS = '''
 	(SELECT COUNT(*) FROM charactercreator_fighter) AS Total_Fighters,
 	(SELECT COUNT(*) FROM charactercreator_mage) AS Total_Mages,
 	(SELECT COUNT(*) FROM charactercreator_thief) AS Total_Thiefs,
-	(SELECT COUNT(*) FROM charactercreator_cleric) AS Total_Clerics
+	(SELECT COUNT(*) FROM charactercreator_cleric) AS Total_Clerics;
 '''
 
 # How many total Items?
-TOTAL_ITEMS = 'SELECT COUNT(*) AS Total_Items FROM armory_item'
+TOTAL_ITEMS = 'SELECT COUNT(*) AS Total_Items FROM armory_item;'
 
 # How many of the Items are weapons?
-WEAPONS = ''
+WEAPONS = 'SELECT COUNT(*) as Total_Weapons FROM armory_weapon;'
 
 # How many of the items are not weapons?
 NON_WEAPONS = ''
