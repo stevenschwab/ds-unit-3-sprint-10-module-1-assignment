@@ -18,7 +18,12 @@ TOTAL_ITEMS = 'SELECT COUNT(*) AS Total_Items FROM armory_item;'
 WEAPONS = 'SELECT COUNT(*) as Total_Weapons FROM armory_weapon;'
 
 # How many of the items are not weapons?
-NON_WEAPONS = ''
+NON_WEAPONS = '''
+    SELECT COUNT(*) FROM armory_item as ai
+    LEFT JOIN armory_weapon as aw
+    ON ai.item_id = aw.item_ptr_id
+    WHERE item_ptr_id IS NULL;
+'''
 
 # How many Items does each character have? (Return first 20 rows)
 CHARACTER_ITEMS = ''

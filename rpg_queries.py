@@ -31,3 +31,8 @@ if __name__ == '__main__':
     total_weapons_df = pd.DataFrame(total_weapons_results)
     total_weapons_df.columns = ['Total_Weapons']
     print(total_weapons_df)
+
+    total_non_weapons_results = execute_q(conn, q.NON_WEAPONS)
+    total_non_weapons_df = pd.DataFrame(total_non_weapons_results)
+    total_non_weapons_df.columns = ['Total_Non_Weapons']
+    print(total_non_weapons_df)
