@@ -12,7 +12,7 @@ TOTAL_SUBCLASS = '''
 '''
 
 # How many total Items?
-TOTAL_ITEMS = ''
+TOTAL_ITEMS = 'SELECT COUNT(*) AS Total_Items FROM armory_item'
 
 # How many of the Items are weapons?
 WEAPONS = ''

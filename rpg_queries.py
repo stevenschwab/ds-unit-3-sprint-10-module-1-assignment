@@ -22,4 +22,7 @@ if __name__ == '__main__':
     total_subclass_df.columns = ['Total_Necromancers', 'Total_Fighters', 'Total_Mages', 'Total_Thiefs', 'Total_Clerics']
     print(total_subclass_df)
 
-    
+    total_items_results = execute_q(conn, q.TOTAL_ITEMS)
+    total_items_df = pd.DataFrame(total_items_results)
+    total_items_df.columns = ['Total_Items']
+    print(total_items_df)
