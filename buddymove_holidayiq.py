@@ -44,10 +44,17 @@ if __name__ == '__main__':
     # load data only if table does not exist
     if not table_exists:
         print(f"Table '{table_name}' does not exist. Loading data...")
-        df.to_sql(table_name, conn, if_exists='fail', index=False)
+        
         print(f"Data loaded into '{table_name}' table")
     else:
         print(f"Table '{table_name}' already exists. Skipping data load.")
 
-    # Step 7: Close the connection
-    conn.close()
+    total_rows = execute_q(conn, q.BUDDYMOVE_COUNT_TOTAL_ROWS)
+    total_rows_df = pd.DataFrame(total_rows)
+    total_rows_df.columns = ['Total_Rows']
+    print(total_rows_df)
+
+    total_users_with_100_nature_and_shopping = execute_q(conn, q.BUDDYMOVE_TOTAL_USERS_WITH_100Nature_AND_100SHOPPING)
+    total_users_with_100_nature_and_shopping_df = pd.DataFrame(total_users_with_100_nature_and_shopping)
+    total_users_with_100_nature_and_shopping_df.columns = ['Total_Users']
+    print(total_users_with_100_nature_and_shopping_df)

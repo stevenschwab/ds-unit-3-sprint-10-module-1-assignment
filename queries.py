@@ -74,6 +74,19 @@ AVG_CHARACTER_WEAPONS = """
     SELECT AVG(Total_Weapons) AS avg_weapons_per_char
     FROM total_weapons_per_char;
 """
+# --------------buddymove_holidayiq queries--------------
 
-CHECK_IF_REVIEW_TABLE_EXISTS = "SELECT name FROM sqlite_master WHERE type='table' AND name='review'"
+CHECK_IF_REVIEW_TABLE_EXISTS = "SELECT name FROM sqlite_master WHERE type='table' AND name='review';"
 
+# Count how many rows you have
+BUDDYMOVE_COUNT_TOTAL_ROWS = """
+    SELECT COUNT(*) AS Total_Rows
+    FROM review;
+"""
+
+# How many users who reviewed at least 100 Nature in the category also reviewed at least 100 in the Shopping category?
+BUDDYMOVE_TOTAL_USERS_WITH_100Nature_AND_100SHOPPING = """
+    SELECT COUNT(*) AS Total_Users
+    FROM review
+    WHERE Nature >= 100 AND Shopping >= 100;
+"""
