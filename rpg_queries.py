@@ -46,3 +46,8 @@ if __name__ == '__main__':
     total_weapons_per_char_df = pd.DataFrame(total_weapons_per_char)
     total_weapons_per_char_df.columns = ['character_id', 'name', 'total_weapons']
     print(total_weapons_per_char_df)
+
+    avg_items_per_char = execute_q(conn, q.AVG_CHARACTER_ITEMS)
+    avg_items_per_char_df = pd.DataFrame(avg_items_per_char)
+    avg_items_per_char_df.columns = ['avg_items_per_char']
+    print(avg_items_per_char_df)

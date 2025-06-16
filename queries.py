@@ -48,7 +48,17 @@ CHARACTER_WEAPONS = """
 """
 
 # On average, how many Items does each Character have?
-AVG_CHARACTER_ITEMS = ''
+AVG_CHARACTER_ITEMS = """
+    WITH char_item_counts AS (
+        SELECT cc_char.character_id, cc_char.name, COUNT(cc_char_i.item_id) AS Char_Item_Count
+        FROM charactercreator_character cc_char
+        LEFT JOIN charactercreator_character_inventory cc_char_i
+        ON cc_char.character_id = cc_char_i.character_id
+        GROUP BY cc_char.character_id
+    )
+    SELECT AVG(Char_Item_Count) as avg_items_per_char
+    FROM char_item_counts;
+"""
 
 # On average, how many Weapons does each character have?
 AVG_CHARACTER_WEAPONS = ''
