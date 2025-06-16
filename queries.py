@@ -26,7 +26,14 @@ NON_WEAPONS = '''
 '''
 
 # How many Items does each character have? (Return first 20 rows)
-CHARACTER_ITEMS = ''
+CHARACTER_ITEMS = """
+    SELECT cc_char.character_id, cc_char.name, COUNT(cc_char_i.item_id) AS Char_Item_Count
+    FROM charactercreator_character cc_char
+    LEFT JOIN charactercreator_character_inventory cc_char_i
+    ON cc_char.character_id = cc_char_i.character_id
+    GROUP BY cc_char.character_id
+    LIMIT 20;
+"""
 
 # How many Weapons does each character have? (Return first 20 rows)
 CHARACTER_WEAPONS = ''
