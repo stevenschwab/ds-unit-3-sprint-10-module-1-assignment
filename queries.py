@@ -74,3 +74,6 @@ AVG_CHARACTER_WEAPONS = """
     SELECT AVG(Total_Weapons) AS avg_weapons_per_char
     FROM total_weapons_per_char;
 """
+
+CHECK_IF_REVIEW_TABLE_EXISTS = "SELECT name FROM sqlite_master WHERE type='table' AND name='review'"
+
