@@ -44,7 +44,7 @@ if __name__ == '__main__':
     # load data only if table does not exist
     if not table_exists:
         print(f"Table '{table_name}' does not exist. Loading data...")
-        
+        df.to_sql(table_name, conn, if_exists='fail', index=False)
         print(f"Data loaded into '{table_name}' table")
     else:
         print(f"Table '{table_name}' already exists. Skipping data load.")
