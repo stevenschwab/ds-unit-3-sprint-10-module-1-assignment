@@ -58,3 +58,8 @@ if __name__ == '__main__':
     total_users_with_100_nature_and_shopping_df = pd.DataFrame(total_users_with_100_nature_and_shopping)
     total_users_with_100_nature_and_shopping_df.columns = ['Total_Users']
     print(total_users_with_100_nature_and_shopping_df)
+
+    avg_num_of_reviews_per_category = execute_q(conn, q.BUDDYMOVE_AVG_NUM_OF_REVIEWS_PER_CAT_PER_USER)
+    avg_num_of_reviews_per_category_df = pd.DataFrame(avg_num_of_reviews_per_category)
+    avg_num_of_reviews_per_category_df.columns = ['avg_sports_review_count', 'avg_religious_review_count', 'avg_nature_review_count', 'avg_theatre_review_count', 'avg_shopping_review_count', 'avg_picnic_review_count']
+    print(avg_num_of_reviews_per_category_df)

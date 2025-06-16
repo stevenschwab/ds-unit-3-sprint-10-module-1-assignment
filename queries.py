@@ -90,3 +90,14 @@ BUDDYMOVE_TOTAL_USERS_WITH_100Nature_AND_100SHOPPING = """
     FROM review
     WHERE Nature >= 100 AND Shopping >= 100;
 """
+
+# What are the average number of reviews for each category?
+BUDDYMOVE_AVG_NUM_OF_REVIEWS_PER_CAT_PER_USER = """
+    SELECT AVG(Sports) AS avg_sports_review_count, 
+        AVG(Religious) AS avg_religious_review_count, 
+        AVG(Nature) AS avg_nature_review_count, 
+        AVG(Theatre) AS avg_theatre_review_count, 
+        AVG(Shopping) AS avg_shopping_review_count, 
+        AVG(Picnic) AS avg_picnic_review_count
+    FROM review;
+"""
