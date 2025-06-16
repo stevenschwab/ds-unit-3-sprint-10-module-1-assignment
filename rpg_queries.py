@@ -37,7 +37,12 @@ if __name__ == '__main__':
     total_non_weapons_df.columns = ['Total_Non_Weapons']
     print(total_non_weapons_df)
 
-    total_char_items = execute_q(conn, q.CHARACTER_ITEMS)
-    total_char_items_df = pd.DataFrame(total_char_items)
-    total_char_items_df.columns = ['Character_id', 'name', 'Char_Item_Count']
-    print(total_char_items_df)
+    total_items_per_char = execute_q(conn, q.CHARACTER_ITEMS)
+    total_items_per_char_df = pd.DataFrame(total_items_per_char)
+    total_items_per_char_df.columns = ['Character_id', 'name', 'Char_Item_Count']
+    print(total_items_per_char_df)
+
+    total_weapons_per_char = execute_q(conn, q.CHARACTER_WEAPONS)
+    total_weapons_per_char_df = pd.DataFrame(total_weapons_per_char)
+    total_weapons_per_char_df.columns = ['character_id', 'name', 'total_weapons']
+    print(total_weapons_per_char_df)

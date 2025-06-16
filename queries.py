@@ -36,7 +36,16 @@ CHARACTER_ITEMS = """
 """
 
 # How many Weapons does each character have? (Return first 20 rows)
-CHARACTER_WEAPONS = ''
+CHARACTER_WEAPONS = """
+    SELECT cc_char.character_id, cc_char.name, COUNT(arm_w.item_ptr_id) AS Total_Weapons
+    FROM charactercreator_character cc_char
+    LEFT JOIN charactercreator_character_inventory cc_char_i
+    ON cc_char.character_id = cc_char_i.character_id
+    LEFT JOIN armory_weapon arm_w
+    ON cc_char_i.item_id = arm_w.item_ptr_id
+    GROUP BY cc_char.character_id
+    LIMIT 20;
+"""
 
 # On average, how many Items does each Character have?
 AVG_CHARACTER_ITEMS = ''
